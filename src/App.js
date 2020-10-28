@@ -1,7 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import LargeButton from "./components/LargeButton/LargeButton";
 
 function App() {
+  const [randomButtonTitle, setRandomButtonTitle] = useState(5.21);
+  const [buttonCounterTitle, setButtonCounterTitle] = useState(0);
+  const [newState, setNewState] = useState();
+
+  function increaseButtonCounter() {
+    setButtonCounterTitle(buttonCounterTitle + 1);
+  }
+
+  function changeButtonTitle() {
+    const randomNumber = Math.random() * 10;
+    const roundedNumber = randomNumber.toFixed(2);
+    setRandomButtonTitle(roundedNumber);
+  }
+  console.log("Hi I am app and I rerendered");
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +33,15 @@ function App() {
         >
           Learn React
         </a>
+        <LargeButton
+          buttonTitle={randomButtonTitle}
+          callbackFunction={changeButtonTitle}
+        />
+        <LargeButton
+          buttonTitle={buttonCounterTitle}
+          callbackFunction={increaseButtonCounter}
+        />
+        <button></button>
       </header>
     </div>
   );

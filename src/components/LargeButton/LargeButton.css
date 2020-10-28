@@ -1,0 +1,8 @@
+.LargeButton {
+  background-color: purple;
+  width: 25%;
+  height: 5vh;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: larger;
+}
